@@ -9,7 +9,7 @@ const LoadingPage = () => {
   useEffect(() => {
     // Redirect to confirmation page after 3-5 seconds
     const redirectTimer = setTimeout(() => {
-      navigate("/confirmacao");
+      navigate("/confirmacion");
     }, 4000); // 4 seconds
 
     return () => clearTimeout(redirectTimer);
