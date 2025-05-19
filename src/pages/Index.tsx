@@ -23,19 +23,30 @@ const Index = () => {
 
   const onSubmit = async (data) => {
     setIsSubmitting(true);
-    
-    // Simular envio
+
+    try {
+      await fetch("https://gruta-api.vercel.app/api/activecampaign", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+        }),
+      });
+    } catch (error) {
+      console.error("Erro ao enviar para ActiveCampaign", error);
+    }
+
     toast({
       title: "Oración recibida",
       description: "Tu petición será llevada a la Gruta de Lourdes"
     });
-    
-    // Redirect to loading page instead of confirmation
+
     setTimeout(() => {
       navigate("/salvando");
       setIsSubmitting(false);
     }, 1500);
-    };
+  };
 
   return (
     <div className="min-h-screen bg-white text-gray-800 font-sans">
