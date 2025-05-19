@@ -6,7 +6,7 @@ export default async function handler(req, res) {
   const { name, email } = req.body;
 
   const apiKey = process.env.ACTIVECAMPAIGN_API_KEY;
-  const baseUrl = 'https://presentedivino.api-us1.com';
+  const baseUrl = process.env.ACTIVECAMPAIGN_API_URL;
 
   try {
     // 1. Criar ou atualizar o contato
