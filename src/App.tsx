@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound";
 import Confirmation from "./pages/Confirmation";
 import LoadingPage from "./pages/LoadingPage";
 import Gracias from "./pages/Gracias";
+import Upsell from "./pages/Upsell";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +24,7 @@ const App = () => (
           <Route path="/salvando" element={<LoadingPage />} />
           <Route path="/confirmacion" element={<Confirmation />} />
           <Route path="/gracias" element={<Gracias />} />
+          <Route path="/upsell" element={<Upsell />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
