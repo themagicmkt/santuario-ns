@@ -159,24 +159,6 @@ const Index = () => {
         </div>
 
         <div className="space-y-2">
-          <label htmlFor="email" className="block text-sm font-medium">Email</label>
-          <Input
-            id="email"
-            type="email"
-            placeholder="Escribe tu email"
-            className="w-full border-[#5f9ea0]/30"
-            {...register("email", {
-              required: "El email es obligatorio",
-              pattern: {
-                value: /^[^@]+@[^@]+\.[^@]+$/,
-                message: "Email inválido",
-              },
-            })}
-          />
-          {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
-        </div>
-
-        <div className="space-y-2">
           <label htmlFor="prayer" className="block text-sm font-medium">Tu petición de oración</label>
           <Textarea
             id="prayer"
