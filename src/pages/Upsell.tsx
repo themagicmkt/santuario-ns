@@ -1,7 +1,35 @@
-import { HandHeart, CheckCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { useEffect } from "react";
+import { HandHeart } from "lucide-react";
 
 const Upsell = () => {
+  useEffect(() => {
+    const existing = document.getElementById("hotmart-widget-loader");
+    if (existing) return;
+
+    const script = document.createElement("script");
+    script.id = "hotmart-widget-loader";
+    script.src = "https://checkout.hotmart.com/lib/hotmart-checkout-elements.js";
+    script.async = true;
+    script.onload = () => {
+      if (window.checkoutElements) {
+        window.checkoutElements.init("salesFunnel", {
+          styles: {
+            button: {
+              backgroundColor: "#4E8A8C",
+              color: "#fff",
+              fontSize: "16px",
+              padding: "12px 24px",
+              borderRadius: "8px",
+              width: "100%",
+              fontWeight: "600"
+            }
+          }
+        }).mount("#hotmart-sales-funnel");
+      }
+    };
+    document.body.appendChild(script);
+  }, []);
+
   return (
     <div className="min-h-screen bg-white text-gray-800 font-sans">
       {/* Header */}
@@ -45,35 +73,20 @@ const Upsell = () => {
           </p>
         </div>
 
-        {/* Planos */}
-        <section className="grid md:grid-cols-3 gap-6 my-12 text-left">
-          {/* Plan Solidario */}
-          <div className="border border-[#5f9ea0]/30 rounded-xl p-6 shadow hover:shadow-lg transition-all">
-            <h4 className="text-xl font-playfair font-semibold text-[#5f9ea0] mb-2">🔸 Plan Solidario</h4>
-            <p className="text-2xl font-bold mb-4">$3,90 <span className="text-sm font-normal">al mes</span></p>
-            <p className="text-sm mb-4">Aunque estés pasando por dificultades económicas, este plan fue creado para que nadie quede fuera.</p>
-            <Button className="w-full bg-[#5f9ea0] text-white hover:bg-[#4e8a8c]">Elegir Plan Solidario</Button>
-          </div>
-
-          {/* Plan Sostenible */}
-          <div className="border border-[#5f9ea0]/30 rounded-xl p-6 shadow-lg scale-105 bg-blue-50">
-            <h4 className="text-xl font-playfair font-semibold text-[#5f9ea0] mb-2">🔸 Plan Sostenible</h4>
-            <p className="text-2xl font-bold mb-4">$6,90 <span className="text-sm font-normal">al mes</span></p>
-            <p className="text-sm mb-4">Cubre el costo total de tu carta y aún nos brinda un pequeño apoyo para seguir adelante.</p>
-            <Button className="w-full bg-[#5f9ea0] text-white hover:bg-[#4e8a8c]">Elegir Plan Sostenible</Button>
-          </div>
-
-          {/* Plan de Apoyo */}
-          <div className="border border-[#5f9ea0]/30 rounded-xl p-6 shadow hover:shadow-lg transition-all">
-            <h4 className="text-xl font-playfair font-semibold text-[#5f9ea0] mb-2">🔸 Plan de Apoyo</h4>
+        {/* Plano Sostenible com Hotmart Widget */}
+        <section className="my-12 text-center">
+          <div className="border border-[#5f9ea0]/30 rounded-xl p-6 shadow-lg bg-blue-50 max-w-md mx-auto">
+            <h4 className="text-xl font-playfair font-semibold text-[#5f9ea0] mb-2">🔸 Mi pedido de oración todos los meses</h4>
             <p className="text-2xl font-bold mb-4">$12,90 <span className="text-sm font-normal">al mes</span></p>
-            <p className="text-sm mb-4">Ideal para quienes desean contribuir más y apoyar a otros fieles a enviar sus oraciones.</p>
-            <Button className="w-full bg-[#5f9ea0] text-white hover:bg-[#4e8a8c]">Elegir Plan de Apoyo</Button>
+            <p className="text-sm mb-4">Lleva mi oración y la de mis seres queridos todos los meses a la Gruta de Lourdes</p>
+
+            {/* Hotmart Sales Funnel Widget */}
+            <div id="hotmart-sales-funnel" className="w-full mt-4" />
           </div>
         </section>
 
-        <p className="text-sm text-gray-500 mt-6 italic">
-          Independientemente del plan que elijas, tu carta será entregada con el mismo amor y devoción.
+        <p className="text-sm text-gray-500 mt-6 italic text-center">
+          Tu carta será entregada con el mismo amor y devoción cada mes.
         </p>
       </main>
 
