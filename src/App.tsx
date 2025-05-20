@@ -10,6 +10,8 @@ import Confirmation from "./pages/Confirmation";
 import LoadingPage from "./pages/LoadingPage";
 import Gracias from "./pages/Gracias";
 import Upsell from "./pages/Upsell";
+import Downsell from "./pages/Downsell";
+import Downsell2 from "./pages/Downsell2";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +27,8 @@ const App = () => (
           <Route path="/confirmacion" element={<Confirmation />} />
           <Route path="/gracias" element={<Gracias />} />
           <Route path="/upsell" element={<Upsell />} />
+          <Route path="/downsell" element={<Downsell />} />
+          <Route path="/downsell2" element={<Downsell2 />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
