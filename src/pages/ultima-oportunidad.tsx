@@ -1,13 +1,13 @@
 import { useEffect } from "react";
+import { HandHeart } from "lucide-react";
 
 declare global {
   interface Window {
     checkoutElements?: unknown;
   }
 }
-import { HandHeart } from "lucide-react";
 
-const Downsell = () => {
+const UltimaOportunidad = () => {
   useEffect(() => {
     const existing = document.getElementById("hotmart-widget-loader");
     if (existing) return;
@@ -19,9 +19,12 @@ const Downsell = () => {
     script.onload = () => {
       if (window.checkoutElements) {
         (window.checkoutElements as {
-          init: (id: string, options: { styles: { button: Record<string, string | number> } }) => {
-            mount: (selector: string) => void;
-          };
+          init: (
+            id: string,
+            options: {
+              styles: { button: Record<string, string | number> };
+            }
+          ) => { mount: (selector: string) => void };
         }).init("salesFunnel", {
           styles: {
             button: {
@@ -31,9 +34,9 @@ const Downsell = () => {
               padding: "12px 24px",
               borderRadius: "8px",
               width: "100%",
-              fontWeight: "600"
-            }
-          }
+              fontWeight: "600",
+            },
+          },
         }).mount("#hotmart-sales-funnel");
       }
     };
@@ -59,33 +62,32 @@ const Downsell = () => {
       {/* Conteúdo */}
       <main className="py-16 px-4 max-w-2xl mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-playfair font-bold text-[#333333] mb-6">
-          Entendemos que $12,90 al mes puede no ser posible en este momento...
+          No se trata de cuánto puedes dar, sino de lo que representa para ti
         </h2>
         <p className="text-lg mb-6">
-          Pero eso no significa que debas renunciar a ver tu oración en la Gruta de Lourdes.
+          Ya has dicho "no" dos veces. Y eso está bien. Esta es tu decisión.
         </p>
         <p className="text-lg mb-6">
-          Por eso, queremos hacer algo especial solo para ti. Hemos abierto una opción más accesible.
+          Pero si aún sientes en tu corazón que tu oración merece llegar a la Gruta de Lourdes, déjanos ofrecerte una última forma de participar.
         </p>
         <p className="text-lg mb-6 font-semibold text-[#5f9ea0]">
-          Por solo $6,90 al mes, seguiremos llevando tu oración todos los meses. El mismo amor. El mismo destino sagrado.
+          Por solo $3,90 al mes, durante 6 meses, llevaremos tu oración personalmente cada mes. Esto es menos de $1 por entrega.
         </p>
 
         <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-6 my-10 text-center shadow max-w-md mx-auto">
-          <h3 className="text-2xl font-playfair font-semibold mb-4">Una oportunidad especial para ti</h3>
+          <h3 className="text-2xl font-playfair font-semibold mb-4">
+            Ayuda a la misión. Recibe la bendición.
+          </h3>
           <p className="text-base leading-relaxed mb-4">
-            Acepta esta segunda oportunidad por solo <strong>$6,90 al mes</strong> y forma parte de nuestra misión mensual a Lourdes.
-          </p>
-          <p className="text-base leading-relaxed">
-            Sin mensualidades. Sin compromisos. Solo fe.
+            Tu apoyo permite que esta misión voluntaria continúe viva. Y a cambio, tus intenciones serán llevadas con amor durante 6 meses seguidos.
           </p>
 
-          {/* Widget de downsell */}
+          {/* Widget de Hotmart */}
           <div id="hotmart-sales-funnel" className="mt-6" />
         </div>
 
         <p className="text-sm text-gray-500 mt-8 italic">
-          Esta es tu señal. No la ignores.
+          Esta es tu última oportunidad de ser parte de algo sagrado.
         </p>
       </main>
 
@@ -118,4 +120,4 @@ const Downsell = () => {
   );
 };
 
-export default Downsell;
+export default UltimaOportunidad;

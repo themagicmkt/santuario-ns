@@ -1,13 +1,7 @@
 import { useEffect } from "react";
 import { HandHeart } from "lucide-react";
 
-declare global {
-  interface Window {
-    checkoutElements?: unknown;
-  }
-}
-
-const Downsell2 = () => {
+const Felicidades = () => {
   useEffect(() => {
     const existing = document.getElementById("hotmart-widget-loader");
     if (existing) return;
@@ -18,14 +12,7 @@ const Downsell2 = () => {
     script.async = true;
     script.onload = () => {
       if (window.checkoutElements) {
-        (window.checkoutElements as {
-          init: (
-            id: string,
-            options: {
-              styles: { button: Record<string, string | number> };
-            }
-          ) => { mount: (selector: string) => void };
-        }).init("salesFunnel", {
+        window.checkoutElements.init("salesFunnel", {
           styles: {
             button: {
               backgroundColor: "#4E8A8C",
@@ -34,9 +21,9 @@ const Downsell2 = () => {
               padding: "12px 24px",
               borderRadius: "8px",
               width: "100%",
-              fontWeight: "600",
-            },
-          },
+              fontWeight: "600"
+            }
+          }
         }).mount("#hotmart-sales-funnel");
       }
     };
@@ -59,35 +46,47 @@ const Downsell2 = () => {
         </div>
       </header>
 
-      {/* Conteúdo */}
-      <main className="py-16 px-4 max-w-2xl mx-auto text-center">
+      {/* Conteúdo Principal */}
+      <main className="py-16 px-4 max-w-3xl mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-playfair font-bold text-[#333333] mb-6">
-          No se trata de cuánto puedes dar, sino de lo que representa para ti
+          ¡Felicidades! Acabas de asegurar tu pedido para Lourdes.
         </h2>
         <p className="text-lg mb-6">
-          Ya has dicho "no" dos veces. Y eso está bien. Esta es tu decisión.
+          Ahora solo necesitas esperar. Te avisaremos por correo electrónico cuando tu carta sea llevada hasta la Gruta…
         </p>
         <p className="text-lg mb-6">
-          Pero si aún sientes en tu corazón que tu oración merece llegar a la Gruta de Lourdes, déjanos ofrecerte una última forma de participar.
+          Como viste anteriormente, nuestro grupo viaja todos los meses a la Gruta de Lourdes para entregar miles de cartas con pedidos de oración.
         </p>
-        <p className="text-lg mb-6 font-semibold text-[#5f9ea0]">
-          Por solo $3,90 al mes, durante 6 meses, llevaremos tu oración personalmente cada mes. Esto es menos de $1 por entrega.
+        <p className="text-lg mb-6">
+          Este trabajo es completamente voluntario, y solo pedimos una pequeña contribución mensual para mantener esta misión viva.
         </p>
 
-        <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-6 my-10 text-center shadow max-w-md mx-auto">
-          <h3 className="text-2xl font-playfair font-semibold mb-4">
-            Ayuda a la misión. Recibe la bendición.
+        <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-6 my-10 text-left shadow">
+          <h3 className="text-2xl font-playfair font-semibold mb-4 text-center">
+            ¿Quieres que tu carta sea llevada todos los meses?
           </h3>
           <p className="text-base leading-relaxed mb-4">
-            Tu apoyo permite que esta misión voluntaria continúe viva. Y a cambio, tus intenciones serán llevadas con amor durante 6 meses seguidos.
+            Cada mes, podrás enviarnos una nueva carta con tu intención o agradecimiento. Nosotros la llevaremos a la Gruta de Lourdes por ti.
           </p>
-
-          {/* Widget de Hotmart */}
-          <div id="hotmart-sales-funnel" className="mt-6" />
+          <p className="text-base leading-relaxed">
+            Cuantas más veces se presenta una intención, más fuerza espiritual se acumula. Así funciona la fe persistente.
+          </p>
         </div>
 
-        <p className="text-sm text-gray-500 mt-8 italic">
-          Esta es tu última oportunidad de ser parte de algo sagrado.
+        {/* Plano Sostenible com Hotmart Widget */}
+        <section className="my-12 text-center">
+          <div className="border border-[#5f9ea0]/30 rounded-xl p-6 shadow-lg bg-blue-50 max-w-md mx-auto">
+            <h4 className="text-xl font-playfair font-semibold text-[#5f9ea0] mb-2">🔸 Mi pedido de oración todos los meses</h4>
+            <p className="text-2xl font-bold mb-4">$12,90 <span className="text-sm font-normal">al mes</span></p>
+            <p className="text-sm mb-4">Lleva mi oración y la de mis seres queridos todos los meses a la Gruta de Lourdes</p>
+
+            {/* Hotmart Sales Funnel Widget */}
+            <div id="hotmart-sales-funnel" className="w-full mt-4" />
+          </div>
+        </section>
+
+        <p className="text-sm text-gray-500 mt-6 italic text-center">
+          Tu carta será entregada con el mismo amor y devoción cada mes.
         </p>
       </main>
 
@@ -120,4 +119,4 @@ const Downsell2 = () => {
   );
 };
 
-export default Downsell2;
+export default Felicidades;

@@ -1,7 +1,13 @@
 import { useEffect } from "react";
+
+declare global {
+  interface Window {
+    checkoutElements?: unknown;
+  }
+}
 import { HandHeart } from "lucide-react";
 
-const Upsell = () => {
+const Oportunidad = () => {
   useEffect(() => {
     const existing = document.getElementById("hotmart-widget-loader");
     if (existing) return;
@@ -12,7 +18,11 @@ const Upsell = () => {
     script.async = true;
     script.onload = () => {
       if (window.checkoutElements) {
-        window.checkoutElements.init("salesFunnel", {
+        (window.checkoutElements as {
+          init: (id: string, options: { styles: { button: Record<string, string | number> } }) => {
+            mount: (selector: string) => void;
+          };
+        }).init("salesFunnel", {
           styles: {
             button: {
               backgroundColor: "#4E8A8C",
@@ -46,47 +56,36 @@ const Upsell = () => {
         </div>
       </header>
 
-      {/* Conteúdo Principal */}
-      <main className="py-16 px-4 max-w-3xl mx-auto text-center">
+      {/* Conteúdo */}
+      <main className="py-16 px-4 max-w-2xl mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-playfair font-bold text-[#333333] mb-6">
-          ¡Felicidades! Acabas de asegurar tu pedido para Lourdes.
+          Entendemos que $12,90 al mes puede no ser posible en este momento...
         </h2>
         <p className="text-lg mb-6">
-          Ahora solo necesitas esperar. Te avisaremos por correo electrónico cuando tu carta sea llevada hasta la Gruta…
+          Pero eso no significa que debas renunciar a ver tu oración en la Gruta de Lourdes.
         </p>
         <p className="text-lg mb-6">
-          Como viste anteriormente, nuestro grupo viaja todos los meses a la Gruta de Lourdes para entregar miles de cartas con pedidos de oración.
+          Por eso, queremos hacer algo especial solo para ti. Hemos abierto una opción más accesible.
         </p>
-        <p className="text-lg mb-6">
-          Este trabajo es completamente voluntario, y solo pedimos una pequeña contribución mensual para mantener esta misión viva.
+        <p className="text-lg mb-6 font-semibold text-[#5f9ea0]">
+          Por solo $6,90 al mes, seguiremos llevando tu oración todos los meses. El mismo amor. El mismo destino sagrado.
         </p>
 
-        <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-6 my-10 text-left shadow">
-          <h3 className="text-2xl font-playfair font-semibold mb-4 text-center">
-            ¿Quieres que tu carta sea llevada todos los meses?
-          </h3>
+        <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-6 my-10 text-center shadow max-w-md mx-auto">
+          <h3 className="text-2xl font-playfair font-semibold mb-4">Una oportunidad especial para ti</h3>
           <p className="text-base leading-relaxed mb-4">
-            Cada mes, podrás enviarnos una nueva carta con tu intención o agradecimiento. Nosotros la llevaremos a la Gruta de Lourdes por ti.
+            Acepta esta segunda oportunidad por solo <strong>$6,90 al mes</strong> y forma parte de nuestra misión mensual a Lourdes.
           </p>
           <p className="text-base leading-relaxed">
-            Cuantas más veces se presenta una intención, más fuerza espiritual se acumula. Así funciona la fe persistente.
+            Sin mensualidades. Sin compromisos. Solo fe.
           </p>
+
+          {/* Widget de downsell */}
+          <div id="hotmart-sales-funnel" className="mt-6" />
         </div>
 
-        {/* Plano Sostenible com Hotmart Widget */}
-        <section className="my-12 text-center">
-          <div className="border border-[#5f9ea0]/30 rounded-xl p-6 shadow-lg bg-blue-50 max-w-md mx-auto">
-            <h4 className="text-xl font-playfair font-semibold text-[#5f9ea0] mb-2">🔸 Mi pedido de oración todos los meses</h4>
-            <p className="text-2xl font-bold mb-4">$12,90 <span className="text-sm font-normal">al mes</span></p>
-            <p className="text-sm mb-4">Lleva mi oración y la de mis seres queridos todos los meses a la Gruta de Lourdes</p>
-
-            {/* Hotmart Sales Funnel Widget */}
-            <div id="hotmart-sales-funnel" className="w-full mt-4" />
-          </div>
-        </section>
-
-        <p className="text-sm text-gray-500 mt-6 italic text-center">
-          Tu carta será entregada con el mismo amor y devoción cada mes.
+        <p className="text-sm text-gray-500 mt-8 italic">
+          Esta es tu señal. No la ignores.
         </p>
       </main>
 
@@ -119,4 +118,4 @@ const Upsell = () => {
   );
 };
 
-export default Upsell;
+export default Oportunidad;
