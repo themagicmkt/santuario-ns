@@ -6,12 +6,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import Confirmation from "./pages/Confirmation";
+import Confirmacao from "./pages/Confirmacao";
 import LoadingPage from "./pages/LoadingPage";
-import Gracias from "./pages/Gracias";
+import Obrigado from "./pages/Obrigado";
 import UltimaOportunidad from "./pages/ultima-oportunidad";
-import Felicidades from "./pages/Felicidades";
+import Parabens from "./pages/Parabens";
 import Oportunidad from "./pages/Oportunidad";
+
 
 
 const queryClient = new QueryClient();
@@ -25,9 +26,9 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/salvando" element={<LoadingPage />} />
-          <Route path="/confirmacion" element={<Confirmation />} />
-          <Route path="/gracias" element={<Gracias />} />
-          <Route path="/felicidades" element={<Felicidades />} />
+          <Route path="/confirmacao" element={<Confirmacao />} />
+          <Route path="/obrigado" element={<Obrigado />} />
+          <Route path="/parabens" element={<Parabens />} />
           <Route path="/oportunidad" element={<Oportunidad />} />
           <Route path="/ultima-oportunidad" element={<UltimaOportunidad />} />
           <Route path="*" element={<NotFound />} />

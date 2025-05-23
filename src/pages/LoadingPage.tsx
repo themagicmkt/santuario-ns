@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Loader } from "lucide-react";
@@ -9,7 +8,7 @@ const LoadingPage = () => {
   useEffect(() => {
     // Redirect to confirmation page after 3-5 seconds
     const redirectTimer = setTimeout(() => {
-      navigate("/confirmacion");
+      navigate("/confirmacao");
     }, 4000); // 4 seconds
 
     return () => clearTimeout(redirectTimer);
@@ -22,11 +21,11 @@ const LoadingPage = () => {
           <Loader className="h-16 w-16 text-[#5f9ea0] animate-spin" />
           
           <h1 className="text-2xl md:text-3xl font-playfair font-semibold text-[#333333]">
-            Guardando tu petición de oración...
+            Salvando sua intenção de oração...
           </h1>
           
           <p className="text-gray-600">
-            Estamos procesando tu solicitud con cuidado y reverencia.
+            Estamos processando sua solicitação com cuidado e reverência.
           </p>
         </div>
       </div>

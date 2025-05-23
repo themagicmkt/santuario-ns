@@ -305,14 +305,12 @@ const Index = () => {
         Ofereça esse ato de amor a um ente querido e permita que a graça divina também alcance a vida dele.
       </p>
       <div className="flex justify-center">
-        <Button 
-          asChild
-          className="bg-[#5f9ea0] hover:bg-[#4e8a8c] text-white px-8 py-3 rounded-lg text-lg font-medium shadow-md hover:shadow-lg transition-all"
+        <a
+          href="#formulario"
+          className="inline-block px-6 py-4 bg-[#5f9ea0] hover:bg-[#4e8a8c] text-white rounded-lg text-lg font-medium shadow-md hover:shadow-lg text-center leading-tight"
         >
-          <a href="#formulario">
-            ➡️ Enviar uma oração por um ente querido
-          </a>
-        </Button>
+          ➡️ Enviar uma oração<br />por um ente querido
+        </a>
       </div>
     </div>
   </div>

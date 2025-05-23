@@ -358,7 +358,7 @@ const Confirmation = () => {
           <div className="flex items-center space-x-3">
             <MapPin className="h-5 w-5 text-marian-blue" />
             <a href="https://wa.me/5511999999999" className="hover:text-white transition-colors">
-              +55 11 99999-9999
+              +55 11 99848877
             </a>
           </div>
         </div>
