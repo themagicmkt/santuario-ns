@@ -219,7 +219,7 @@ const Confirmation = () => {
         <Gift className="text-[#5f9ea0]" size={32} />
         </div>
         
-        <h3 className="font-playfair font-semibold text-xl mb-2 text-center">US 9.90</h3>
+        <h3 className="font-playfair font-semibold text-xl mb-2 text-center">US 4.90</h3>
         <h4 className="font-sans text-lg mb-4 text-center">Necesito un poco de apoyo</h4>
         
         <p className="text-sm mb-6 text-center italic">
@@ -248,7 +248,7 @@ const Confirmation = () => {
         <HeartPulse className="text-[#5f9ea0]" size={32} />
         </div>
         
-        <h3 className="font-playfair font-semibold text-xl mb-2 text-center">US 19.90</h3>
+        <h3 className="font-playfair font-semibold text-xl mb-2 text-center">US 9.90</h3>
         <h4 className="font-sans text-lg mb-4 text-center">Costo real de entrega</h4>
         
         <p className="text-sm mb-6 text-center italic">
@@ -274,7 +274,7 @@ const Confirmation = () => {
         <Gift className="text-[#f4d58d]" size={32} />
         </div>
         
-        <h3 className="font-playfair font-semibold text-xl mb-2 text-center">US 29.90</h3>
+        <h3 className="font-playfair font-semibold text-xl mb-2 text-center">US 14.90</h3>
         <h4 className="font-sans text-lg mb-4 text-center">Lleva mi oración + Apoya a otro devoto</h4>
         
         <p className="text-sm mb-6 text-center italic">
