@@ -229,7 +229,7 @@ const Confirmation = () => {
       </p>
 
       <Button className="w-full bg-[#5f9ea0] hover:bg-[#4e8a8c] text-white px-4 py-2 rounded-lg text-lg font-medium shadow-md hover:shadow-lg transition-all" asChild>
-        <a href="https://pay.hotmart.com/D99772325D?off=vl1cwh1g&checkoutMode=10" target="_blank" rel="noopener noreferrer">
+        <a href="https://pay.hotmart.com/P99903353J?off=rz5bi168&checkoutMode=10" target="_blank" rel="noopener noreferrer">
           Enviar oração com apoio
         </a>
       </Button>
@@ -258,7 +258,7 @@ const Confirmation = () => {
       </p>
 
       <Button className="w-full bg-[#5f9ea0] hover:bg-[#4e8a8c] text-white px-4 py-2 rounded-lg text-lg font-medium shadow-md hover:shadow-lg transition-all" asChild>
-        <a href="https://pay.hotmart.com/D99772325D?off=s28ne4e9&checkoutMode=10" target="_blank" rel="noopener noreferrer">
+        <a href="https://pay.hotmart.com/P99903353J?off=eevsfpr3&checkoutMode=10" target="_blank" rel="noopener noreferrer">
           Entregar minha oração
         </a>
       </Button>
@@ -284,7 +284,7 @@ const Confirmation = () => {
       </p>
 
       <Button className="w-full bg-[#f4d58d] hover:bg-[#e3c47c] text-[#333333] px-4 py-2 rounded-lg text-lg font-medium shadow-md hover:shadow-lg transition-all" asChild>
-        <a href="https://pay.hotmart.com/D99772325D?off=bdpspyby&checkoutMode=10" target="_blank" rel="noopener noreferrer">
+        <a href="https://pay.hotmart.com/P99903353J?off=sdok54i9&checkoutMode=10" target="_blank" rel="noopener noreferrer">
           Enviar e abençoar outro
         </a>
       </Button>
