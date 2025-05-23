@@ -24,7 +24,7 @@ const Index = () => {
     setIsSubmitting(true);
 
     try {
-      await fetch("https://gruta-api.vercel.app/api/activecampaign", {
+      await fetch("https://santuario-api-portugues.vercel.app/api/activecampaign", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
